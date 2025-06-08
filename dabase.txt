@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exportar: postgres - db - Adminer</title>
+<link rel="stylesheet" href="?file=default.css&amp;version=5.3.0">
+<link rel='stylesheet' media='(prefers-color-scheme: dark)' href='?file=dark.css&amp;version=5.3.0'>
+<meta name='color-scheme' content='light dark'>
+<script src='?file=functions.js&amp;version=5.3.0' nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE="></script>
+<link rel='icon' href='data:image/gif;base64,R0lGODlhEAAQAJEAAAQCBPz+/PwCBAROZCH5BAEAAAAALAAAAAAQABAAAAI2hI+pGO1rmghihiUdvUBnZ3XBQA7f05mOak1RWXrNq5nQWHMKvuoJ37BhVEEfYxQzHjWQ5qIAADs='>
+<link rel='apple-touch-icon' href='?file=logo.png&amp;version=5.3.0'>
+
+<body class='ltr nojs adminer'>
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">mixin(document.body, {onkeydown: bodyKeydown, onclick: bodyClick});
+document.body.classList.replace('nojs', 'js');
+const offlineMessage = 'You are offline.';
+const thousandsSeparator = ' ';</script>
+<div id='help' class='jush-pgsql jsonly hidden'></div>
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">mixin(qs('#help'), {onmouseover: () => { helpOpen = 1; }, onmouseout: helpMouseout});</script>
+<div id='content'>
+<span id='menuopen' class='jsonly'><button type='submit' name='' title='' class='icon icon-move'><span>menu</span></button></span><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">qs('#menuopen').onclick = event => { qs('#foot').classList.toggle('foot'); event.stopPropagation(); }</script>
+<p id="breadcrumb"><a href="?pgsql=db">PostgreSQL</a> » <a href='?pgsql=db&amp;username=postgres' accesskey='1' title='Alt+Shift+1'>db</a> » <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=">postgres</a> » <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public">public</a> » Exportar
+<h2>Exportar: postgres</h2>
+<div id='ajaxstatus' class='jsonly hidden'></div>
+
+<form action="" method="post">
+<table class="layout">
+<tr><th>Saída<td><label><input type='radio' name='output' value='text' checked>abrir</label><label><input type='radio' name='output' value='file'>salvar</label><label><input type='radio' name='output' value='gz'>gzip</label>
+<tr><th>Formato<td><label><input type='radio' name='format' value='sql' checked>SQL</label><label><input type='radio' name='format' value='csv'>CSV,</label><label><input type='radio' name='format' value='csv;'>CSV;</label><label><input type='radio' name='format' value='tsv'>TSV</label>
+<tr><th>Base de dados<td><select name='db_style'><option><option>USE<option>DROP+CREATE<option selected>CREATE</select><label><input type='checkbox' name='types' value='1'>Tipos definidos pelo usuário</label><label><input type='checkbox' name='routines' value='1' checked>Rotinas</label><tr><th>Tabelas<td><select name='table_style'><option><option>DROP+CREATE<option selected>CREATE</select><label><input type='checkbox' name='auto_increment' value='1'>Incremento Automático</label><label><input type='checkbox' name='triggers' value='1' checked>Triggers</label><tr><th>Dados<td><select name='data_style'><option><option>TRUNCATE+INSERT<option selected>INSERT</select></table>
+<p><input type="submit" value="Exportar">
+<input type='hidden' name='token' value='697531:78197'>
+
+<table>
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">qsl('table').onclick = dumpClick;</script>
+<thead><tr><th style='text-align: left;'><label class='block'><input type='checkbox' id='check-tables' checked>Tabelas</label><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">qs('#check-tables').onclick = partial(formCheck, /^tables\[/);</script><th style='text-align: right;'><label class='block'>Dados<input type='checkbox' id='check-data' checked></label><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">qs('#check-data').onclick = partial(formCheck, /^data\[/);</script></thead>
+<tr><td><label class='block'><input type='checkbox' name='tables[]' value='event' checked>event</label><td align='right'><label class='block'><span id='Rows-event'></span><input type='checkbox' name='data[]' value='event' checked></label>
+<tr><td><label class='block'><input type='checkbox' name='tables[]' value='garage' checked>garage</label><td align='right'><label class='block'><span id='Rows-garage'></span><input type='checkbox' name='data[]' value='garage' checked></label>
+<tr><td><label class='block'><input type='checkbox' name='tables[]' value='lease' checked>lease</label><td align='right'><label class='block'><span id='Rows-lease'></span><input type='checkbox' name='data[]' value='lease' checked></label>
+<tr><td><label class='block'><input type='checkbox' name='tables[]' value='payment' checked>payment</label><td align='right'><label class='block'><span id='Rows-payment'></span><input type='checkbox' name='data[]' value='payment' checked></label>
+<tr><td><label class='block'><input type='checkbox' name='tables[]' value='spot' checked>spot</label><td align='right'><label class='block'><span id='Rows-spot'></span><input type='checkbox' name='data[]' value='spot' checked></label>
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">ajaxSetHtml('?pgsql=db&username=postgres&db=postgres&ns=public&script=db');</script>
+</table>
+</form>
+</div>
+
+<div id='foot' class='foot'>
+<div id='menu'>
+<h1><a href='https://www.adminer.org/' target="_blank" rel="noreferrer noopener" id='h1'><img src='?file=logo.png&amp;version=5.3.0' width='24' height='24' alt='' id='logo'>Adminer</a> <span class='version'>5.3.0 <a href='https://www.adminer.org/#download' target="_blank" rel="noreferrer noopener" id='version'></a></span></h1>
+<form action='' method='post'>
+<div id='lang'><label>Idioma: <select name='lang'><option value="en">English<option value="ar">العربية<option value="bg">Български<option value="bn">বাংলা<option value="bs">Bosanski<option value="ca">Català<option value="cs">Čeština<option value="da">Dansk<option value="de">Deutsch<option value="el">Ελληνικά<option value="es">Español<option value="et">Eesti<option value="fa">فارسی<option value="fi">Suomi<option value="fr">Français<option value="gl">Galego<option value="he">עברית<option value="hi">हिन्दी<option value="hu">Magyar<option value="id">Bahasa Indonesia<option value="it">Italiano<option value="ja">日本語<option value="ka">ქართული<option value="ko">한국어<option value="lt">Lietuvių<option value="lv">Latviešu<option value="ms">Bahasa Melayu<option value="nl">Nederlands<option value="no">Norsk<option value="pl">Polski<option value="pt">Português<option value="pt-br" selected>Português (Brazil)<option value="ro">Limba Română<option value="ru">Русский<option value="sk">Slovenčina<option value="sl">Slovenski<option value="sr">Српски<option value="sv">Svenska<option value="ta">த‌மிழ்<option value="th">ภาษาไทย<option value="tr">Türkçe<option value="uk">Українська<option value="uz">Oʻzbekcha<option value="vi">Tiếng Việt<option value="zh">简体中文<option value="zh-tw">繁體中文</select><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">qsl('select').onchange = function () { this.form.submit(); };</script></label> <input type='submit' value='Usar' class='hidden'>
+<input type='hidden' name='token' value='719462:94120'>
+</div>
+</form>
+<script src='?file=jush.js&amp;version=5.3.0' nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=" defer></script>
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">
+var jushLinks = { pgsql: [ '?pgsql=db&username=postgres&db=postgres&ns=public&table=$&', /\b(event|garage|lease|payment|spot)\b/g ] };
+jushLinks.bac = jushLinks.pgsql;
+jushLinks.bra = jushLinks.pgsql;
+jushLinks.sqlite_quo = jushLinks.pgsql;
+jushLinks.mssql_bra = jushLinks.pgsql;
+</script>
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">syntaxHighlighting('17', '');</script>
+<form action=''>
+<p id='dbs'>
+<input type='hidden' name='pgsql' value='db'>
+<input type='hidden' name='username' value='postgres'>
+<label title='Base de dados'>DB: <select name='db'><option value=""><option selected>postgres<option>template1</select><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">mixin(qsl('select'), {onmousedown: dbMouseDown, onchange: dbChange});</script>
+</label><input type='submit' value='Usar' class='hidden'>
+<br><label>Esquema: <select name='ns'><option value=""><option>information_schema<option>pg_catalog<option>pg_toast<option selected>public</select><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">mixin(qsl('select'), {onmousedown: dbMouseDown, onchange: dbChange});</script>
+</label><input type='hidden' name='dump' value=''>
+</p></form>
+<p class='links'>
+<a href='?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;sql='>Comando SQL</a>
+<a href='?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;import='>Importar</a>
+<a href='?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;dump=' id='dump' class='active '>Exportar</a>
+<a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;create=">Criar tabela</a>
+<ul id='tables'><script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">mixin(qs('#tables'), {onmouseover: menuOver, onmouseout: menuOut});</script>
+<li><a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;select=event" class='select' title='Selecionar dados'>selecionar</a> <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;table=event" class='structure' title='Mostrar estrutura'>event</a>
+<li><a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;select=garage" class='select' title='Selecionar dados'>selecionar</a> <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;table=garage" class='structure' title='Mostrar estrutura'>garage</a>
+<li><a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;select=lease" class='select' title='Selecionar dados'>selecionar</a> <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;table=lease" class='structure' title='Mostrar estrutura'>lease</a>
+<li><a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;select=payment" class='select' title='Selecionar dados'>selecionar</a> <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;table=payment" class='structure' title='Mostrar estrutura'>payment</a>
+<li><a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;select=spot" class='select' title='Selecionar dados'>selecionar</a> <a href="?pgsql=db&amp;username=postgres&amp;db=postgres&amp;ns=public&amp;table=spot" class='structure' title='Mostrar estrutura'>spot</a>
+</ul>
+</div>
+<form action="" method="post">
+<p class="logout">
+<span>postgres
+</span>
+<input type="submit" name="logout" value="Sair" id="logout">
+<input type='hidden' name='token' value='405390:899648'>
+</form>
+</div>
+
+<script nonce="ODgzMjRlY2U3YTJhN2Y2ZjkyNzg1NDVmODdjN2FlYTE=">setupSubmitHighlight(document);</script>

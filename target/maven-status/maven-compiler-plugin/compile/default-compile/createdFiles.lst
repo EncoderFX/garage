@@ -1,0 +1,5 @@
+com\garage\service\Scheduling.class
+com\garage\controller\WebhookController.class
+com\garage\service\Garage.class
+com\garage\service\WebhookService.class
+com\garage\GarageApplication.class

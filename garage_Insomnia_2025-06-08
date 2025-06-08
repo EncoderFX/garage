@@ -1,0 +1,206 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1748985809871
+  modified: 1748985809871
+collection:
+  - url: localhost:3003/webhook
+    name: webhook-entry
+    meta:
+      id: req_94cba47f6bc74d2aa7f0629b5a5a1de9
+      created: 1748985834373
+      modified: 1749431530425
+      isPrivate: false
+      sortKey: -1748985834373
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "license_plate": "ZUL0001",
+          "entry_time": "2025-06-08T18:00:00.000Z",
+          "event_type": "ENTRY"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d562945dfba84b6e8408fb01b91f814d
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_911b45ee04054c49b170660af4cb5d1b
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3003/spot-status
+    name: spot-status
+    meta:
+      id: req_a4d2c27ada8245b8b9330e200a3dcf72
+      created: 1749254266123
+      modified: 1749429784872
+      isPrivate: false
+      sortKey: -1749254266124
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "lat": -23.561684,
+          "lng": -46.655981
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3003/plate-status
+    name: plate-status
+    meta:
+      id: req_11d8b2c3fac64f7a802b53588ca4ebf4
+      created: 1749263213152
+      modified: 1749429792457
+      isPrivate: false
+      sortKey: -1749120050248.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "license_plate": "ZUL0001"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3003/revenue
+    name: revenue
+    meta:
+      id: req_78a6ce80c0c54bdb9d6cc9f541281521
+      created: 1749429818227
+      modified: 1749431672448
+      isPrivate: false
+      sortKey: -1749052942310.75
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "date": "2025-06-08",
+          "sector": "A"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.1.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3003/webhook
+    name: webhook-exit
+    meta:
+      id: req_5e80d5d910c9414ca4eb9a32318033de
+      created: 1749431457209
+      modified: 1749431560992
+      isPrivate: false
+      sortKey: -1748985834323
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {		
+          "license_plate": "ZUL0001",
+          "exit_time": "2025-06-08T21:00:00.000Z",
+          "event_type": "EXIT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d562945dfba84b6e8408fb01b91f814d
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_911b45ee04054c49b170660af4cb5d1b
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3003/webhook
+    name: webhook-parked
+    meta:
+      id: req_3d87dc52843d4330acf592b6ce648dcf
+      created: 1749431467676
+      modified: 1749431502622
+      isPrivate: false
+      sortKey: -1748985834273
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "license_plate": "ZUL0001",
+          "lat": -23.561684,
+          "lng": -46.655981,
+          "event_type": "PARKED"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d562945dfba84b6e8408fb01b91f814d
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_911b45ee04054c49b170660af4cb5d1b
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1748985820488
+    modified: 1748985820488
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1748985820326
+    modified: 1748985820326
+    isPrivate: false

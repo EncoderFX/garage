@@ -1,0 +1,15 @@
+server:
+  port : 3003
+  
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: dra22
+    driverClassName: org.postgresql.Driver
